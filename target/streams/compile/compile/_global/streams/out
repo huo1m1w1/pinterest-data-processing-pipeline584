@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0m/home/kafka/Documents/pinterest_project/practise.scala:1:1: expected class or object definition[0m
+[0m[[0m[31merror[0m] [0m[0mspark.sql("CREATE TABLE IF NOT EXISTS sparkcatlog.testks with DBPROPERTIES (class='SimpleStrategy', replication_factor='1')")[0m
+[0m[[0m[31merror[0m] [0m[0m^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
