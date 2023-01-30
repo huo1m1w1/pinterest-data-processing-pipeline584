@@ -1,4 +1,5 @@
 # Pinterest-data-processing-pipeline
 
 
-![streaming-arch](https://user-images.githubusercontent.com/90225549/213447765-b1508158-30a6-4f50-a86a-a303b6ade09d.png)
+
+![image](https://user-images.githubusercontent.com/90225549/215363601-fcb904d3-0b55-4496-ad86-a1acbb270fb4.png)
