@@ -5,8 +5,9 @@
 2. Firstly, pins will be sent to kafka.
 3. In batch processing, written in Python, data will be read from Kafka and saved to AWS S3.
 4. Data will be read, cleaned, transformed and saved to cassandra by spark.  
-5. In streaming process, written in Scala, spark will read streaming data from kakfa, perform ETL, and window function, and save data to AWS RDS postgresql.
-6. AirFlow will orchestrate the whole pipelines, including starting runtime environment for example zookeeper kafka, cassandra, performing ETL pipeline,  and staring streaming process. 
+5. I made a batch precessing comparison of spark and spark integrated with redis. Spark with redis performed data processing significantly better than spark alone, also it is much easier to manage data transfering through the pipeline, however large dataset may not be suitable for spark with redis.
+6. In streaming process, written in Scala, spark will read streaming data from kakfa, perform ETL, and window function, and save data to AWS RDS postgresql.
+7. AirFlow will orchestrate the whole pipelines, including starting runtime environment for example zookeeper kafka, cassandra, performing ETL pipeline,  and staring streaming process. 
 
 ### Infrastracture:
 
