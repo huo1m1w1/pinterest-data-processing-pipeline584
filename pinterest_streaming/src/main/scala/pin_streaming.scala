@@ -72,12 +72,12 @@ object pin_streaming {
                                                     .otherwise(col("follower_count")))
               .withColumn("follower_count", col("follower_count").cast("int"))
 
-    val sessionizedCounts = transformed_df
-      .withWatermark("timestamp", "10 minutes")
-      .groupBy(
-        session_window($"timestamp", "5 minutes"),
-        $"userId")
-      .count()
+//     val userCounts = transformed_df
+//       .withWatermark("timestamp", "10 minutes")
+//       .groupBy(
+//         session_window($"timestamp", "5 minutes"),
+//         $"poster_name")
+//       .count()
 
 
     val windowedSum = transformed_df.select("timestamp", "poster_name")
