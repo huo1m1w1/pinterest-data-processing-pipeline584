@@ -2,4 +2,4 @@
 
 
 
-![My Image] (Slide2.jpg)
+![My Image](Slide2.jpg)
