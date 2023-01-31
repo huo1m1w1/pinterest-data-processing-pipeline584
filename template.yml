@@ -228,6 +228,7 @@ Resources:
             
             # sudo git clone https://git-codecommit.us-east-1.amazonaws.com/v1/repos/pinterest_project
             sudo git clone https://github.com/huo1m1w1/pinterest-data-processing-pipeline584.git
+            pip install -r pinterest-data-processing-pipeline584/requirements.txt
             
             # Download kafka package
             sudo wget https://downloads.apache.org/kafka/3.2.3/kafka_2.13-3.2.3.tgz
