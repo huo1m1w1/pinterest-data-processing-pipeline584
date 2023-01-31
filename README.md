@@ -1,7 +1,5 @@
 #                                            Pinterest-data-processing-pipeline
 ![My Image](Slide2.jpg)  
-
-
 ### Introduction:
 1. This project is to build pinterest pipelines of batch processing and streaming processing, see picture above.
 2. Firstly, pins will be sent to kafka.
