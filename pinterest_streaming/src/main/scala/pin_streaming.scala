@@ -102,7 +102,7 @@ object pin_streaming {
           .option("url", "jdbc:postgresql://nft-ranking.cftyhhxl7vmx.eu-west-2.rds.amazonaws.com:5432/rds_database")
           .option("dbtable", "postgres")
           .option("user", "postgres")
-          .option("password", "16October")
+          .option("password", <RDS password>)
           .mode("append")
           .save()
 
