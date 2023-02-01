@@ -14,7 +14,7 @@
 The infrastracture, including EC2 instance with security group, git, docker, docker-compose, kafka, spark, cassandra, airflow, promenthues, grafana, and all the dependency packages, will be build by cloudformation. It will be very helpful if we want to build multiple node clusters or we may need it in the future for same or similar infrastructure requirement. 
 
 ### The prerequisite:
-Creating an aws account with s3-admin role with full access to s3 permission, and a key-pair named 'pin_app.pem' to access to EC2 through the terminal. RDS postgresql database with username and database both are "postgres", and your own password to replace in streaming codes.
+Creating an aws account with s3-admin role with full access to s3 permission, and a key-pair named 'pin_app.pem' to access to EC2 through the terminal. RDS postgresql username and database both are named by "postgres", and your own password which need to be replaced in dag.py code.
 It is recommended to start the cloudformation in console, uploading template.yml file to create the stack, as it is no need to set credential. check the installation process in terminal by command "sudo cat /var/log/cloud-init-output.log". 
 
 ### Run the codes:
