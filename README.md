@@ -7,7 +7,7 @@
 4. Data will be read, cleaned, transformed and saved to cassandra by spark.  
 5. I made a batch precessing comparison of spark and spark integrated with redis. Spark with redis performed data processing significantly better than spark alone, also it is much easier to manage data transfering through the pipeline, however large dataset may not be suitable for spark with redis.
 6. In streaming process, written in Scala, spark will read streaming data from kakfa, perform ETL, and window function, and save data to AWS RDS postgresql.
-7. AirFlow will orchestrate the whole pipelines, including starting runtime environment for example zookeeper kafka, cassandra, performing ETL pipeline,  and staring streaming process. 
+7. AirFlow will orchestrate the whole pipelines, including starting runtime environment for example zookeeper kafka, cassandra, performing ETL pipeline,  and starting streaming process. 
 
 ### Infrastracture:
 
@@ -18,5 +18,5 @@ Creating an aws account with s3-admin role with full access to s3 permission, an
 It is recommended to start the cloudformation in console, uploading template.yml file to create the stack, as it is no need to set credential. check the installation process in terminal by command "sudo cat /var/log/cloud-init-output.log". 
 
 ### Run the codes:
-Two methods to start the pipelines, in terminal run dag.py in root directory of pinterest-data-processing-pipeline584, or simply add code userdata in templet.yml to start the application automatically.
+Two methods to start the pipelines, in terminal run dag.py in root directory of pinterest-data-processing-pipeline584, or simply add code to userdata in templet.yml to start the application automatically.
 Using default ports to check dags, grafana, spark.
