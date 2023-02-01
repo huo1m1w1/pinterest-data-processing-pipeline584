@@ -210,7 +210,7 @@ Resources:
             sudo chmod -v +x /usr/local/bin/docker-compose
             
             # install wget
-            sudo yum install wget
+            sudo yum install wget -y
 
             # install git
             sudo yum install git -y
@@ -269,7 +269,7 @@ Resources:
             
             # install decendencies
             sudo wget https://repo1.maven.org/maven2/com/datastax/spark/spark-cassandra-connector_2.12/3.3.0/spark-cassandra-connector_2.12-3.3.0.jar -P /home/ec2-user/spark/jars
-            sudo wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.11.342/aws-java-sdk-bundle-1.11.342.jar -P /home/ec2-user/spark/jars
+            sudo wget https://repo1.maven.org/maven2/com/amazonaws/aws-java-sdk-bundle/1.11.271/aws-java-sdk-bundle-1.11.271.jar -P /home/ec2-user/spark/jars
             sudo wget https://repo1.maven.org/maven2/org/apache/spark/spark-sql-kafka-0-10_2.12/3.3.1/spark-sql-kafka-0-10_2.12-3.3.1.jar -P /home/ec2-user/spark/jars
             sudo wget https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-aws/3.3.1/hadoop-aws-3.3.1.jar
             
