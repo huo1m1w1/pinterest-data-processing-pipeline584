@@ -209,15 +209,21 @@ Resources:
             sudo mv docker-compose-$(uname -s)-$(uname -m) /usr/local/bin/docker-compose
             sudo chmod -v +x /usr/local/bin/docker-compose
             
-            
+            # install wget
+            sudo yum install wget
+
             # install git
             sudo yum install git -y
             
-            # Install java            
-            sudo yum install java-1.8.0-openjdk -y 
-            
-            # install wget
-            sudo yum install wget
+            # Install java
+            sudo wget https://javadl.oracle.com/webapps/download/AutoDL?BundleId=243712_61ae65e088624f5aaa0b1d2d801acb16
+            sudo tar -xvf AutoDL?BundleId=243712_61ae65e088624f5aaa0b1d2d801acb16
+            mkdir /home/ec2-user/java
+            sudo mv jdk1.8.0_271 /home/ec2-user/java
+            export JAVA_HOME=/home/ec2-user/java/jdk1.8.0_271
+            export PATH="$JAVA_HOME/bin:$PATH"
+            # sudo yum install java-1.8.0-openjdk -y 
+           
             
             # create folders
             # mkdir /home/ec2-user/kafka
