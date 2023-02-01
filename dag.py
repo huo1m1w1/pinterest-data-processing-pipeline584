@@ -48,7 +48,7 @@ def ETL():
     """
     loading data from aws s3 bucket
     """
-    df = spark.read.json("/home/kafka/Documents/pinterest_project/data/*.json")
+    df = spark.read.json("s3a:// "+path to bucket name+ "*.json")
 
     """
     Removing duplicates and replace error value with None value
