@@ -99,7 +99,7 @@ object pin_streaming {
 
     transformed_df.write
           .format("jdbc")
-          .option("url", "jdbc:postgresql://nft-ranking.cftyhhxl7vmx.eu-west-2.rds.amazonaws.com:5432/rds_database")
+          .option("url", "jdbc:postgresql://nft-ranking.cftyhhxl7vmx.eu-west-2.rds.amazonaws.com:5432/rds_database") # replace with your own RDS endpoint port and database.
           .option("dbtable", "postgres")
           .option("user", "postgres")
           .option("password", <RDS password>)
