@@ -220,8 +220,12 @@ Resources:
             sudo tar -xvf AutoDL?BundleId=243712_61ae65e088624f5aaa0b1d2d801acb16
             mkdir /home/ec2-user/java
             sudo mv jdk1.8.0_271 /home/ec2-user/java
+            cat <<'EOF' >> /home/ec2-user/.bashrc
             export JAVA_HOME=/home/ec2-user/java/jdk1.8.0_271
             export PATH="$JAVA_HOME/bin:$PATH"
+            EOF
+            source /home/ec2-user/.bashrc
+            
             # sudo yum install java-1.8.0-openjdk -y 
            
             
