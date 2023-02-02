@@ -200,13 +200,13 @@ with DAG(
     # get data from source and send to two kafka brokers for batch processing and streaming
     start_zookeeper = BashOperator(
         task_id="zookeeper",
-        bash_command="/home/ec2-user/kafka/bin/zookeeper-server-start.sh config/zookeeper.properties",
+        bash_command="/home/ec2-user/kafka/bin/zookeeper-server-start.sh /home/ec2-user/kafka/config/zookeeper.properties",
         dag=dag,
     )
 
     start_kafka = BashOperator(
         task_id="kafka",
-        bash_command="/home/ec2-user/kafka/bin/kafka-server-start.sh config/server.properties",
+        bash_command="/home/ec2-user/kafka/bin/kafka-server-start.sh /home/ec2-user/kafka/config/server.properties",
         dag=dag,
     )
 
@@ -217,7 +217,7 @@ with DAG(
     )
 
     start_prometheus = BashOperator(
-        task_id="prometheus", bash_command="/prometheus-*/prometheus", dag=dag
+        task_id="prometheus", bash_command="/prometheus-*/prometheus --config.file=prometheus.yml", dag=dag
     )
 
     start_grafana = BashOperator(
