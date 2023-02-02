@@ -254,8 +254,11 @@ Resources:
             sudo rm kafka_2.13-3.2.3.tgz
             sudo rm kafka_2.13-3.2.3.tgz.asc
             sudo rm -f KEYS
-        
-            
+            cat <<'EOF' >> /home/ec2-user/.bashrc
+            export KAFKA_HOME=/home/ec2-user/kafka
+            export PATH=$PATH:/home/ec2-user/kafka/bin
+            EOF
+         
             # insatll spark
             sudo wget https://dlcdn.apache.org/spark/spark-3.3.1/spark-3.3.1-bin-hadoop3.tgz
             sudo wget https://dlcdn.apache.org/spark/spark-3.3.1/spark-3.3.1-bin-hadoop3.tgz.asc
@@ -337,7 +340,7 @@ Resources:
             wget https://github.com/prometheus/prometheus/releases/download/v2.0.0/prometheus-2.0.0.linux-amd64.tar.gz
             tar -xzf prometheus-2.0.0.linux-amd64.tar.gz
             rm prometheus-*
-            cat <<'EOF' > /prometheus/prometheus.yml
+            cat <<'EOF' > /prometheus-2.0.0.linux-amd64/prometheus.yml
             global:
             scrape_interval: 10s
             evaluation_interval: 10s
