@@ -220,7 +220,6 @@ Resources:
             # Install java
             sudo wget https://javadl.oracle.com/webapps/download/AutoDL?BundleId=243712_61ae65e088624f5aaa0b1d2d801acb16
             sudo tar -xvf AutoDL?BundleId=243712_61ae65e088624f5aaa0b1d2d801acb16
-            mkdir /home/ec2-user/java
             sudo mv jdk1.8.0_271 /home/ec2-user/java
             sudo rm -f AutoDL?BundleId=243712_61ae65e088624f5aaa0b1d2d801acb16
 
@@ -395,7 +394,7 @@ Resources:
             export PATH=$PATH:/home/ec2-user//home/ec2-user/cassandra/bin
             export SPARK_HOME=/home/ec2-user/spark
             export PATH=$PATH:/home/ec2-user/spark/bin
-            export JAVA_HOME=/home/ec2-user/java/jdk1.8.0_271
+            export JAVA_HOME=/home/ec2-user/java
             export PATH="$JAVA_HOME/bin:$PATH"
             export KAFKA_HOME=/home/ec2-user/kafka
             export PATH=$PATH:/home/ec2-user/kafka/bin
