@@ -219,8 +219,8 @@ Resources:
             
             # Install java
             sudo wget https://javadl.oracle.com/webapps/download/AutoDL?BundleId=243712_61ae65e088624f5aaa0b1d2d801acb16
-            sudo tar -xvf AutoDL?BundleId=243712_61ae65e088624f5aaa0b1d2d801acb16
-            sudo mv jdk1.8.0_271 /home/ec2-user/java
+            sudo tar -xvf AutoDL?BundleId=243712_61ae65e088624f5aaa0b1d2d801acb16 -C /home/ec2-user/ --remove-files
+            sudo mv /home/ec2-user/jdk1.8.0_271 /home/ec2-user/java
             sudo rm -f AutoDL?BundleId=243712_61ae65e088624f5aaa0b1d2d801acb16
 
             
