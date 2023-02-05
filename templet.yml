@@ -1,7 +1,7 @@
 AWSTemplateFormatVersion: 2010-09-09
 Description:  This template deploys an EC2 with VPC and security group in either us-east-1 or us-west-2,
  with a pair of public and private subnets spread across two Availability Zones. It deploys an internet gateway, 
- with a default route on the public subnets, a Linux t2.medium Instance with Security Group with open HTTP access. 
+ with a default route on the public subnets, a recommended Linux t3.large Instance with Security Group with open HTTP access. 
 
 
 Mappings:
@@ -183,7 +183,7 @@ Resources:
             VolumeType: gp2
       IamInstanceProfile: s3-admin
       ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
-      InstanceType: t2.micro
+      InstanceType: t3.large
       KeyName: pin_app
       SubnetId: !Ref PublicSubnet1
       SecurityGroupIds: 
