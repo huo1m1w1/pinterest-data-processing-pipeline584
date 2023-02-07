@@ -1,10 +1,3 @@
-# prerequesation: 
-# insatll kafka
-# 1. tar -xzf kafka_2.13-3.2.1.tgz
-# 2. cd kafka_2.13-3.2.1
-# 3. bin/zookeeper-server-start.sh config/zookeeper.properties # start zookeeper
-# 4. bin/kafka-server-start.sh config/server.properties # start kafka
-
 
 import json
 from kafka import KafkaConsumer
