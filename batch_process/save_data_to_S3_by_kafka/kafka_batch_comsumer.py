@@ -18,6 +18,9 @@ class Batch_consumer:
         pass
 
     def create_bucket(self, bucket_name):
+        """
+        Create S3 bucket 
+        """
 
         s3 = boto3.resource("s3")
         # create a unique bucket name
@@ -25,6 +28,9 @@ class Batch_consumer:
         s3.create_bucket(Bucket=self.bucket_name)
 
     def create_kafka_topic(self, topic_name, n_partitions, n_replication_factors):
+        """
+        Create Kafka topic
+        """
 
         admin_client = KafkaAdminClient(
             bootstrap_servers="localhost:9092",
@@ -42,7 +48,9 @@ class Batch_consumer:
 
     def get_data_from_topic(self, topic_name, hostname='localhost'):
 
-        # assuming that the data has already been sent to kafka by producer
+        """
+        Receiving data from kafka given topic/s
+        """
         server_host = hostname + ":9092"
         consumer = KafkaConsumer(
             topic_name,
@@ -56,12 +64,22 @@ class Batch_consumer:
         return consumer
 
     def generate_unique_id(self):
+        """
+        Generate UUID to name bucket
+        """
         return uuid.uuid4()
 
     def get_event(self, message):
+        """
+        Convert json object to string format
+        """
         return json.dumps(message.value)
 
     def get_file_name(self, unique_id, index):
+        
+        """
+        create filename
+        """
         filename = (
             "pinterest_events_"
             + unique_id
@@ -73,6 +91,10 @@ class Batch_consumer:
         )
 
     def send_data_to_s3(self, event, filename, bucket_name):
+        
+        """
+        Send object to AWS S3
+        """
         self.s3 = boto3.resource("s3")
         self.s3.put_object(Body=event, Bucket=bucket_name, Key=filename)
 
