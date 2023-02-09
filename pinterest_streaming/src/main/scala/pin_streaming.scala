@@ -5,8 +5,12 @@ import org.apache.spark.sql.functions._
 import org.apache.spark.sql.functions.from_json
 import org.apache.spark.sql.expressions._
 import java.sql.Driver
-object pin_streaming {
 
+/** Following object to receive streaming data from kafka, performing ETL, window operation and saving data to postgresql in AWS RDS.
+  */
+object pin_streaming {
+  
+  // define a json schema
   val jsonSchema = new StructType()
     .add("index", IntegerType)
     .add("unique_id", StringType)
@@ -29,9 +33,9 @@ object pin_streaming {
           .appName("sparkStreaming")
           .master("local[*]")
           .getOrCreate()
-//
 
-    // receiving data from kafka
+
+    // receiving streaming data from kafka
     val df = spark
           .readStream
           .format("kafka")
@@ -39,11 +43,10 @@ object pin_streaming {
           .option("subscribe", "streaming")
           .load()
 
-    // transfer json files to dataframe with the column of timestamp
+    // transfer json files to dataframe with additional column of timestamp
     val df1 = df.selectExpr("timestamp as original_timestamp","cast (value as string) as json")
                 .select(from_json(col("json"), jsonSchema) as "data", col("original_timestamp"))
                 .selectExpr("data.index as index", "data.unique_id as unique_id", "data.title as title", "data.description as description", "data.poster_name as poster_name", "data.follower_count as follower_count", "data.tag_list as tag_list", "data.is_image_or_video as is_image_or_video", "data.image_src as image_src", "data.downloaded as downloaded", "data.save_location as save_location", "data.category as category", "original_timestamp as timestamp")
-//
 
 
     df1.printSchema()
@@ -51,7 +54,7 @@ object pin_streaming {
 
     import spark.implicits._
 
-
+    // ETL process
     val transformed_df = df1.withColumn("description",when(col("description").equalTo("No description available Story format"), None)
                              .otherwise(col("description")))
                .withColumn("description", when(col("description").equalTo("No description available"), None)
@@ -72,14 +75,7 @@ object pin_streaming {
                                                     .otherwise(col("follower_count")))
               .withColumn("follower_count", col("follower_count").cast("int"))
 
-//     val userCounts = transformed_df
-//       .withWatermark("timestamp", "10 minutes")
-//       .groupBy(
-//         session_window($"timestamp", "5 minutes"),
-//         $"poster_name")
-//       .count()
-
-
+    // set window wateramrk a 1 min before timestamp
     val windowedSum = transformed_df.select("timestamp", "poster_name")
         .withColumn("timestamp", to_timestamp(col("timestamp")))
         .withWatermark("timestamp", "1 minute")
