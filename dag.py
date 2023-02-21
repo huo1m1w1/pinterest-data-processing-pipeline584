@@ -146,7 +146,7 @@ def sending_data_to_cassandra():
     )
     df = (
         spark.read.format("org.apache.spark.sql.redis")
-        .option("table", "pins_redis")
+        .option("table", "pins")
         .option("key.column", "index")
         .load()
     )
