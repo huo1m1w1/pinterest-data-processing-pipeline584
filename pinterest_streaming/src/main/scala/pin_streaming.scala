@@ -79,7 +79,7 @@ object pin_streaming {
     val windowedSum = transformed_df.select("timestamp", "poster_name")
         .withColumn("timestamp", to_timestamp(col("timestamp")))
         .withWatermark("timestamp", "1 minute")
-        .groupBy(window(col("timestamp"), "1 minute"))
+        .groupBy(window(col("timestamp"), "10 seconds"))
         .agg(countDistinct("poster_name").alias("sum_value"))
 
 
