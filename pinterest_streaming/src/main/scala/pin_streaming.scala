@@ -83,7 +83,7 @@ object pin_streaming {
         .agg(sum("poster_name").alias("sum_value"))
 
 
-    val query = windowedSum.writeStream
+    query = windowedSum.writeStream
         .outputMode("complete")
         .format("console")
         .start()
@@ -99,11 +99,11 @@ object pin_streaming {
           .option("dbtable", "postgres")
           .option("user", "postgres")
           .option("password", <RDS password>)
-          .mode("append")
-          .save()
+          .mode("driver", "org.postgresql.Driver")
+          .start()
 
-    spark.streams.awaitAnyTermination()
-
+    transformed_df.awaitAnyTermination()
+    query.awaitAnyTermination()
 
   }
 
