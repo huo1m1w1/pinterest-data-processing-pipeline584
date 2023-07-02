@@ -283,33 +283,7 @@ Resources:
             sudo mkdir /home/ec2-user/cassandra/etc
             sudo rm apache-cassandra-4.0.7-bin.tar.gz.asc            
             sudo rm KEYS
-            sudo rm -f apache-cassandra-4.0.7-bin.tar.gz
-            
-        
-            
-            
-            #   # install presto
-            #   # sudo wget
-            #   https://repo.maven.apache.org/maven2/io/prestosql/presto-server/350/presto-server-350.tar.gz            
-            #   # tar -xvzf presto-server-350.tar.gz -C /home/ec2-user/presto
-            #   --remove-files            
-            #   # sudo mv /home/ec2-user/presto-server-350 /home/ec2-user/presto            
-            #   # mkdir /home/ec2-user/presto/etc            
-            #   # sudo wget
-            #   https://repo1.maven.org/maven2/com/facebook/presto/presto-jdbc/0.277/presto-jdbc-0.277.jar
-            
-            
-            #   # mv /pinterest-data-processing-pipeline584/config.properties
-            #   /home/ec2-user/presto/presto-server-350/etc/config.properties            
-            #   # mv /pinterest-data-processing-pipeline584/node.properties
-            #   /home/ec2-user/presto/presto-server-350/etc/node.properties            
-            #   # mv /pinterest-data-processing-pipeline584/jvm.config
-            #   /home/ec2-user/presto/presto-server-350/etc/jvm.config            
-            #   # mkdir /home/ec2-user/presto/presto-server-350/etc/catalog
-            #   # mv /pinterest-data-processing-pipeline584/tpch.properties
-            #   /home/ec2-user/presto/presto-server-350/etc/catalog/tpch.properties            
-            #   # sudo rm -f presto-server-350.tar.gz
-            
+            sudo rm -f apache-cassandra-4.0.7-bin.tar.gz            
             
             # install airflow
             sudo wget https://dlcdn.apache.org/airflow/2.5.1/apache-airflow-2.5.1-source.tar.gz
@@ -321,14 +295,7 @@ Resources:
             sudo mv /home/ec2-user/apache-airflow-2.5.1 /home/ec2-user/airflow
             sudo rm apache-airflow-2.5.1-source.tar.gz.asc            
             sudo rm KEYS
-            sudo rm -f apache-airflow-2.5.1-source.tar.gz
-            
-      
-            
-            #   cat << EOF >> /home/ec2-user/.bashrc
-            #   export AIRFLOW_HOME=/home/ec2-user/airflow
-            #   export PATH=$PATH:/home/ec2-user//home/ec2-user/airflow/bin
-            #   EOF          
+            sudo rm -f apache-airflow-2.5.1-source.tar.gz   
               
             # pip3 install 'apache-airflow[postgres]==2.5.1' --constraint "https://raw.githubusercontent.com/apache/airflow/constraints-2.5.1/constraints-3.7.txt"
             airflow db init
@@ -363,24 +330,7 @@ Resources:
               - targets:
                 - localhost:5432                  
             EOF
-            
 
-            # # install grafana
-            # cat << EOF > /etc/repos.d/grafana.repo
-            # [grafana]
-            # name=grafana
-            # baseurl=https://rpm.grafana.com
-            # repo_gpgcheck=1
-            # enabled=1
-            # gpgcheck=1
-            # gpgkey=https://rpm.grafana.com/gpg.key
-            # sslverify=1
-            # sslcacert=/etc/pki/tls/certs/ca-bundle.crt  
-            # EOF
-            # sudo yum install grafana -y
-            
-            
-            
             # install scala sbt
             
             sudo wget http://downloads.typesafe.com/scala/2.11.6/scala-2.11.6.tgz
